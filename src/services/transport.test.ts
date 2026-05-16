@@ -11,7 +11,7 @@ const mocks = vi.hoisted(() => {
   };
   const device: Record<string, any> = {
     id: "ble-device-1",
-    name: "AirPay Receiver",
+    name: "MobAir Receiver",
     localName: null,
     serviceUUIDs: [transportIds.serviceUuid],
   };

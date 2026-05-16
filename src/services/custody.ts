@@ -16,8 +16,8 @@ import { wordlist } from "@scure/bip39/wordlists/english.js";
 import { createTransferInstruction, getAssociatedTokenAddressSync } from "@solana/spl-token";
 import { Keypair, PublicKey, SystemProgram, Transaction, TransactionInstruction } from "@solana/web3.js";
 
-import { canonicalStringify, createNonce, deriveStableWalletId, sha256Hex } from "@airpay/shared";
-import { IDENTITY_DERIVATION_VERSION } from "@airpay/shared";
+import { canonicalStringify, createNonce, deriveStableWalletId, sha256Hex } from "@protocol-offair/shared";
+import { IDENTITY_DERIVATION_VERSION } from "@protocol-offair/shared";
 import type {
   AssetBalance,
   ChainAssetId,
@@ -29,7 +29,7 @@ import type {
   WalletProfile,
   WalletRegistryEntry,
   WalletSecurityState,
-} from "@airpay/shared";
+} from "@protocol-offair/shared";
 
 import { translate } from "../i18n";
 

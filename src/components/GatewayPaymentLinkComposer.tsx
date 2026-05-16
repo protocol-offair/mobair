@@ -44,7 +44,7 @@ export function GatewayPaymentLinkComposer(props: {
   const [amount, setAmount] = useState("0.05");
   const [receiveAsset, setReceiveAsset] = useState<GatewayPaymentAsset>("SOL");
   const [payAsset, setPayAsset] = useState<GatewayPaymentAsset>("SOL");
-  const [label, setLabel] = useState("AirPay merchant");
+  const [label, setLabel] = useState("MobAir merchant");
   const [message, setMessage] = useState("");
   const [generatedRequest, setGeneratedRequest] = useState<OnlinePaymentRequest | null>(null);
   const [error, setError] = useState<string | null>(null);

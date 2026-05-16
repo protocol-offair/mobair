@@ -93,7 +93,7 @@ describe("localAuth compatibility", () => {
     expect(canUseBiometricLogin()).toBe(false);
 
     const profile = await registerLocalAccount({
-      fullName: "AirPay Tester",
+      fullName: "MobAir Tester",
       email: "tester@airpay.local",
       password: "airpaysmoke",
       confirmPassword: "airpaysmoke",

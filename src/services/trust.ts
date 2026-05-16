@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { sha256Hex } from "@airpay/shared";
+import { sha256Hex } from "@protocol-offair/shared";
 
 export type TrustCacheTier = "hot" | "warm" | "cold";
 export type TrustBand = "trusted" | "neutral" | "watch" | "blocked";

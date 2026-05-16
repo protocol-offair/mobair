@@ -10,7 +10,7 @@ import {
   createNonce,
   RECEIVER_PAYS_OFFLINE_SETTLEMENT_FEES,
   sha256Hex,
-} from "@airpay/shared";
+} from "@protocol-offair/shared";
 import type {
   DeviceManifest,
   HandshakeEnvelope,
@@ -18,7 +18,7 @@ import type {
   PeerProofDigest,
   PromiseSignatureBundle,
   TransferReceipt,
-} from "@airpay/shared";
+} from "@protocol-offair/shared";
 
 import {
   AirPayNativeEvents,

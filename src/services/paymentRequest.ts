@@ -157,12 +157,12 @@ function parseSolanaPayUrl(raw: string): OnlinePaymentRequest {
   };
 }
 
-function parseAirPayUrl(raw: string): OnlinePaymentRequest {
+function parseMobAirUrl(raw: string): OnlinePaymentRequest {
   let url: URL;
   try {
     url = new URL(raw.trim());
   } catch {
-    throw new Error("AirPay payment link is invalid.");
+    throw new Error("MobAir payment link is invalid.");
   }
 
   const params = url.searchParams;
@@ -286,7 +286,7 @@ export function parseOnlinePaymentRequest(raw: string): OnlinePaymentRequest {
     return parseSolanaPayUrl(normalized);
   }
   if (normalized.startsWith("airpay://pay")) {
-    return parseAirPayUrl(normalized);
+    return parseMobAirUrl(normalized);
   }
   return parseJsonPayload(normalized);
 }
@@ -313,8 +313,8 @@ export function buildLocalGatewayPaymentLink(input: LocalGatewayPaymentLinkInput
   const gatewayFeeBps = input.gatewayFeeBps ?? DEFAULT_GATEWAY_FEE_BPS;
   const conversionFeeBps = input.conversionFeeBps ?? DEFAULT_CONVERSION_SERVICE_FEE_BPS;
   const allowedPayCurrencies = input.allowedPayCurrencies ?? ["SOL", "USDC", "USDT", "BRZ", "OFFAIR"];
-  const label = textValue(input.label) ?? "AirPay merchant";
-  const message = textValue(input.message) ?? `AirPay Gateway deferred payment ${intentId}`;
+  const label = textValue(input.label) ?? "MobAir merchant";
+  const message = textValue(input.message) ?? `MobAir Gateway deferred payment ${intentId}`;
 
   const params = new URLSearchParams({
     intentId,

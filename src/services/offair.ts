@@ -30,7 +30,7 @@ import {
   OFFLINE_SETTLEMENT_MODE_VERIFIED,
   RECEIVER_PAYS_OFFLINE_SETTLEMENT_FEES,
   sha256Hex,
-} from "@airpay/shared";
+} from "@protocol-offair/shared";
 import type {
   OfflineTransfer,
   PromiseChainState,
@@ -40,7 +40,7 @@ import type {
   ReserveBalance,
   WalletProfile,
   WalletPublicProfile,
-} from "@airpay/shared";
+} from "@protocol-offair/shared";
 
 import { signAndSerializeTransaction } from "./custody";
 import { recordDiagnosticError } from "./diagnostics";

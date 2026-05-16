@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import * as Clipboard from "expo-clipboard";
 import { Alert, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 
-import type { AssetBalance, WalletProfile, WalletRegistryEntry, WalletSecurityState } from "@airpay/shared";
+import type { AssetBalance, WalletProfile, WalletRegistryEntry, WalletSecurityState } from "@protocol-offair/shared";
 
 import type { OnboardingState } from "../services/wallet";
 import { airPayTestIds } from "../testing/testIds";

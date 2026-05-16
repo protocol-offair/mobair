@@ -1,4 +1,4 @@
-# AirPay Maestro Flows
+# OffAir Maestro Flows
 
 These flows target the Android package `com.airpay.wallet` and rely on stable React Native `testID` selectors.
 

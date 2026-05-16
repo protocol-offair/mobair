@@ -7,7 +7,7 @@ import type {
   RiskSnapshot,
   WalletProfile,
   WalletRegistryEntry,
-} from "@airpay/shared";
+} from "@protocol-offair/shared";
 
 import { getWalletRuntimeConfig, readErrorResponse, readJsonResponse } from "./chain";
 import { buildClientSignatureHeaders } from "./clientSignature";

@@ -197,7 +197,7 @@ function createWalletState(input: {
   const walletId = role === "receiver" ? "wallet-receiver" : "wallet-sender";
   const deviceId = role === "receiver" ? "receiver-device" : "sender-device";
   const solanaAddress = role === "receiver" ? receiverAddress : senderAddress;
-  const displayName = role === "receiver" ? "Receiver Wallet" : "AirPay Sender";
+  const displayName = role === "receiver" ? "Receiver Wallet" : "MobAir Sender";
   const profile = {
     walletType: "global" as const,
     displayName,

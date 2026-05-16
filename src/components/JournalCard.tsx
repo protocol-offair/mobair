@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 
-import type { OfflineTransfer } from "@airpay/shared";
+import type { OfflineTransfer } from "@protocol-offair/shared";
 
 import { formatAssetAmount } from "../i18n";
 import { useAppSettings } from "../settings/AppSettingsProvider";

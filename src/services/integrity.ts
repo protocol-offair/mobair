@@ -2,8 +2,8 @@ import * as Application from "expo-application";
 import * as Device from "expo-device";
 import * as SecureStore from "expo-secure-store";
 
-import type { AllowlistPolicy, DeviceManifest } from "@airpay/shared";
-import { buildDeviceReputationAnchor, createNonce, evaluateDeviceIntegrity, sha256Hex } from "@airpay/shared";
+import type { AllowlistPolicy, DeviceManifest } from "@protocol-offair/shared";
+import { buildDeviceReputationAnchor, createNonce, evaluateDeviceIntegrity, sha256Hex } from "@protocol-offair/shared";
 
 import { getIntegrityManifest as getNativeIntegrityManifest } from "./native/AirPayNative";
 import type { NativeTransportIds } from "./native/AirPayNative";

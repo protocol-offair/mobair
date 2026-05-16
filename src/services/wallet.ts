@@ -22,7 +22,7 @@ import {
   lineageRequiresVerifiedOnly,
   scoreRisk,
   sha256Hex,
-} from "@airpay/shared";
+} from "@protocol-offair/shared";
 import type {
   AllowlistPolicy,
   AssetBalance,
@@ -40,7 +40,7 @@ import type {
   WalletProfile,
   WalletRegistryEntry,
   WalletSecurityState,
-} from "@airpay/shared";
+} from "@protocol-offair/shared";
 
 import {
   fetchLatestBlockhash,

@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 
-import type { PendingChainTransaction } from "@airpay/shared";
+import type { PendingChainTransaction } from "@protocol-offair/shared";
 
 import { airPayTestIds } from "../testing/testIds";
 import { useI18n } from "../i18n/I18nProvider";

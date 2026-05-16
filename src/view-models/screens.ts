@@ -1,4 +1,4 @@
-import type { PendingChainTransaction } from "@airpay/shared";
+import type { PendingChainTransaction } from "@protocol-offair/shared";
 
 import type { LocalRiskLevel, SessionQuality, TrustCacheSummary, TrustBand, TrustCacheTier } from "../services/trust";
 import type { WalletState } from "../services/wallet";

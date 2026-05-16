@@ -1,5 +1,5 @@
 {
-  "name": "airpay-mobile",
+  "name": "mobair",
   "version": "0.1.0",
   "private": true,
   "main": "expo/AppEntry",
@@ -16,10 +16,11 @@
     "smoke:testnet": "npm run smoke:devnet"
   },
   "dependencies": {
-    "@airpay/shared": "github:protocol-offair/airpay-shared#main",
     "@expo-google-fonts/manrope": "^0.4.2",
+    "@expo/vector-icons": "^15.1.1",
     "@noble/hashes": "^2.0.1",
     "@noble/post-quantum": "^0.6.1",
+    "@protocol-offair/shared": "^0.1.1",
     "@react-native-async-storage/async-storage": "^2.2.0",
     "@react-navigation/bottom-tabs": "^7.15.9",
     "@react-navigation/native": "^7.2.2",
@@ -55,10 +56,11 @@
   "devDependencies": {
     "@babel/core": "^7.26.0",
     "@types/node-forge": "^1.3.11",
-    "@types/react": "^19.2.14"
+    "@types/react": "^19.2.14",
+    "vitest": "^3.2.4"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/protocol-offair/airpay-mobile.git"
+    "url": "git+https://github.com/protocol-offair/mobair.git"
   }
 }

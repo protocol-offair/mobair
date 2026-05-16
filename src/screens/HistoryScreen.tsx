@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
-import { validateJournal } from "@airpay/shared";
+import { validateJournal } from "@protocol-offair/shared";
 
 import { JournalCard } from "../components/JournalCard";
 import { PendingChainCard } from "../components/PendingChainCard";

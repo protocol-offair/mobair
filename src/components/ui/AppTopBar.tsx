@@ -25,11 +25,11 @@ export function AppTopBar(props: {
 
   return (
     <View style={[styles.container, compactHeader && styles.containerCompact]}>
-      <View style={[styles.brandRow, compactHeader && styles.brandRowCompact]} accessibilityRole="image" accessibilityLabel="AirPay">
+      <View style={[styles.brandRow, compactHeader && styles.brandRowCompact]} accessibilityRole="image" accessibilityLabel="MobAir">
         <View style={[styles.logoBadge, compactHeader && styles.logoBadgeCompact]}>
           <Image source={airpayLogoMark} resizeMode="contain" style={styles.logoImage} />
         </View>
-        {!compactHeader ? <Text style={styles.brand}>AirPay</Text> : null}
+        {!compactHeader ? <Text style={styles.brand}>MobAir</Text> : null}
       </View>
       <View style={[styles.rightRow, compactHeader && styles.rightRowCompact]}>
         {props.statusLabel ? <StatusChip label={props.statusLabel} tone={props.statusTone ?? "info"} /> : null}

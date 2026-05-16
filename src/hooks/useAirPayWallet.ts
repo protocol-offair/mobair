@@ -2,7 +2,7 @@ import Constants from "expo-constants";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AppState } from "react-native";
 
-import { buildBaseRoot } from "@airpay/shared";
+import { buildBaseRoot } from "@protocol-offair/shared";
 
 import { createGatewayWalletSessionWithBackend } from "../services/backend";
 import {

@@ -1,4 +1,4 @@
-import type { DocumentType, WalletType } from "@airpay/shared";
+import type { DocumentType, WalletType } from "@protocol-offair/shared";
 
 export function digitsOnly(value: string): string {
   return value.replace(/\D+/g, "");

@@ -1,9 +1,9 @@
 import Constants from "expo-constants";
-import { sha256Hex } from "@airpay/shared";
+import { sha256Hex } from "@protocol-offair/shared";
 import type {
   AssetBalance,
   PendingChainTransaction,
-} from "@airpay/shared";
+} from "@protocol-offair/shared";
 
 import { recordDiagnostic, recordDiagnosticError } from "./diagnostics";
 import { buildClientSignatureHeaders } from "./clientSignature";

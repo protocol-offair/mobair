@@ -4,7 +4,7 @@ import { pbkdf2Async } from "@noble/hashes/pbkdf2.js";
 import { sha256 } from "@noble/hashes/sha2.js";
 import { Buffer } from "buffer";
 
-import { createNonce } from "@airpay/shared";
+import { createNonce } from "@protocol-offair/shared";
 
 import { translate } from "../i18n";
 

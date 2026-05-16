@@ -3,7 +3,7 @@ import Constants from "expo-constants";
 import nacl from "tweetnacl";
 import { Buffer } from "buffer";
 
-import { canonicalStringify } from "@airpay/shared";
+import { canonicalStringify } from "@protocol-offair/shared";
 
 const LOCAL_TRANSPORT_KEYPAIR_STORAGE_KEY = "airpay.transport.keypair";
 

@@ -1,4 +1,4 @@
-import { canonicalStringify, sha256Hex } from "@airpay/shared";
+import { canonicalStringify, sha256Hex } from "@protocol-offair/shared";
 
 import { signWalletMessage } from "./custody";
 
