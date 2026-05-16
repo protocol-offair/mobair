@@ -4,7 +4,7 @@ export type GatewayPaymentAsset = "SOL" | "USDC" | "USDT" | "BRZ" | "OFFAIR";
 
 export const GATEWAY_PAYMENT_ASSETS: GatewayPaymentAsset[] = ["SOL", "USDC", "USDT", "BRZ", "OFFAIR"];
 export const DEFAULT_GATEWAY_FEE_BPS = 70;
-export const DEFAULT_CONVERSION_PROTECTION_FEE_BPS = 180;
+export const DEFAULT_CONVERSION_SERVICE_FEE_BPS = 180;
 
 export interface AssetConversionQuote {
   receiveAmount: string;
@@ -100,7 +100,7 @@ export function quoteGatewayAssetConversion(input: {
         ? "direct_sol"
         : "quoted_conversion";
   const conversionFeeBps =
-    route === "direct_sol" ? 0 : input.conversionFeeBps ?? DEFAULT_CONVERSION_PROTECTION_FEE_BPS;
+    route === "direct_sol" ? 0 : input.conversionFeeBps ?? DEFAULT_CONVERSION_SERVICE_FEE_BPS;
   const totalFeeBps = gatewayFeeBps + conversionFeeBps;
   const rates = input.rates ?? {
     solUsd: 1,

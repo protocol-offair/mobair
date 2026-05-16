@@ -1,7 +1,7 @@
 import { Keypair, PublicKey } from "@solana/web3.js";
 
 import {
-  DEFAULT_CONVERSION_PROTECTION_FEE_BPS,
+  DEFAULT_CONVERSION_SERVICE_FEE_BPS,
   DEFAULT_GATEWAY_FEE_BPS,
   normalizeGatewayPaymentAsset,
   type GatewayPaymentAsset,
@@ -311,7 +311,7 @@ export function buildLocalGatewayPaymentLink(input: LocalGatewayPaymentLinkInput
   const intentId = createLocalIntentId(now);
   const reference = Keypair.generate().publicKey.toBase58();
   const gatewayFeeBps = input.gatewayFeeBps ?? DEFAULT_GATEWAY_FEE_BPS;
-  const conversionFeeBps = input.conversionFeeBps ?? DEFAULT_CONVERSION_PROTECTION_FEE_BPS;
+  const conversionFeeBps = input.conversionFeeBps ?? DEFAULT_CONVERSION_SERVICE_FEE_BPS;
   const allowedPayCurrencies = input.allowedPayCurrencies ?? ["SOL", "USDC", "USDT", "BRZ", "OFFAIR"];
   const label = textValue(input.label) ?? "AirPay merchant";
   const message = textValue(input.message) ?? `AirPay Gateway deferred payment ${intentId}`;

@@ -24,7 +24,7 @@ describe("assetConversion", () => {
     expect(quote?.route).toBe("direct_sol");
   });
 
-  it("adds conversion protection when payer and merchant assets differ", () => {
+  it("adds the configured conversion service fee when payer and merchant assets differ", () => {
     const quote = quoteGatewayAssetConversion({
       receiveAmount: "10",
       receiveAsset: "BRZ",
