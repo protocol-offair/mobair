@@ -8,4 +8,4 @@ Este repositório foi separado do monorepo AirPay em 2026-05-16 para deixar o ec
 
 ## Organização prevista
 
-Repositório alvo: `airpay-protocol/airpay-mobile`.
+Repositório alvo: `protocol-offair/airpay-mobile`.

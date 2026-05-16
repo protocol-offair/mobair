@@ -16,7 +16,7 @@
     "smoke:testnet": "npm run smoke:devnet"
   },
   "dependencies": {
-    "@airpay/shared": "github:airpay-protocol/airpay-shared#main",
+    "@airpay/shared": "github:protocol-offair/airpay-shared#main",
     "@expo-google-fonts/manrope": "^0.4.2",
     "@noble/hashes": "^2.0.1",
     "@noble/post-quantum": "^0.6.1",
@@ -59,6 +59,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/airpay-protocol/airpay-mobile.git"
+    "url": "git+https://github.com/protocol-offair/airpay-mobile.git"
   }
 }
