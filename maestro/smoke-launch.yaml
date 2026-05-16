@@ -1,0 +1,30 @@
+appId: com.airpay.wallet
+---
+- launchApp:
+    clearState: true
+- assertVisible:
+    id: "hero-headline"
+- assertVisible:
+    id: "readiness-card"
+- assertVisible:
+    id: "wallet-card"
+- tapOn:
+    id: "tab-send"
+- assertVisible:
+    id: "chain-card"
+- assertVisible:
+    id: "offline-card"
+- tapOn:
+    id: "tab-receive"
+- assertVisible:
+    id: "receiver-card"
+- tapOn:
+    id: "tab-history"
+- assertVisible:
+    id: "pending-chain-empty"
+- assertVisible:
+    id: "journal-empty"
+- tapOn:
+    id: "tab-home"
+- assertVisible:
+    id: "reset-button"

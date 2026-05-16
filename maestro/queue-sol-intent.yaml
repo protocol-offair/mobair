@@ -1,0 +1,23 @@
+appId: com.airpay.wallet
+---
+- launchApp:
+    clearState: true
+- tapOn:
+    id: "wallet-passphrase-input"
+- inputText: maestro-pass
+- tapOn:
+    id: "wallet-create-button"
+- assertVisible:
+    id: "wallet-confirm-backup-button"
+- tapOn:
+    id: "wallet-confirm-backup-button"
+- tapOn:
+    id: "tab-send"
+- tapOn:
+    id: "chain-asset-sol-tab"
+- tapOn:
+    id: "chain-queue-button"
+- tapOn:
+    id: "tab-history"
+- assertVisible:
+    id: "pending-chain-card"

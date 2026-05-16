@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "AirPay",
+    "slug": "airpay",
+    "scheme": "airpay",
+    "version": "0.3.1",
+    "orientation": "portrait",
+    "icon": "./assets/brand/airpay-app-icon.png",
+    "android": {
+      "package": "com.airpay.wallet",
+      "versionCode": 4,
+      "icon": "./assets/brand/airpay-app-icon.png",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/brand/airpay-adaptive-icon.png",
+        "backgroundColor": "#071218"
+      },
+      "permissions": [
+        "NFC",
+        "BLUETOOTH",
+        "BLUETOOTH_ADVERTISE",
+        "BLUETOOTH_SCAN",
+        "BLUETOOTH_CONNECT",
+        "ACCESS_FINE_LOCATION"
+      ]
+    },
+    "plugins": [
+      "expo-secure-store",
+      "react-native-nfc-manager",
+      "react-native-ble-plx"
+    ],
+    "extra": {
+      "backendUrl": "https://airpay.digital-directive.com/api",
+      "backendTransportPublicKey": "LClv9CJ0jQgTpsTzs1YGn4lGoOHxbfk5xNGPigUXYhU=",
+      "solanaCluster": "solana-devnet",
+      "solanaRpcUrl": "https://devnet.rpcpool.com",
+      "airpayProgramId": "Gv93ixNuQdSudaWXbk9mD1U6QbchZrJBuPokhNfjgDq2",
+      "offairMintAddress": "H4entHstGVarxNhzRNsyF6dqNeKKSwCiWP9pnJyeKj4T",
+      "offairTokenDecimals": 9,
+      "mainAuthorityAddress": "BZtVpepV5oHpJwrvkFR7jq8wK1M4Gq3ioQpaF8SFdGsN"
+    }
+  }
+}

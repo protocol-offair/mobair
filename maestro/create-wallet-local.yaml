@@ -1,0 +1,26 @@
+appId: com.airpay.wallet
+---
+- launchApp:
+    clearState: true
+- assertVisible:
+    id: "wallet-create-button"
+- tapOn:
+    id: "wallet-passphrase-input"
+- inputText: maestro-pass
+- tapOn:
+    id: "wallet-create-button"
+- assertVisible:
+    id: "wallet-mnemonic-card"
+- assertVisible:
+    id: "wallet-address-meta"
+- tapOn:
+    id: "wallet-confirm-backup-button"
+- assertVisible:
+    id: "readiness-wallet-step"
+- assertVisible:
+    id: "readiness-backup-step"
+- assertVisible:
+    id: "wallet-readiness-meta"
+- tapOn:
+    id: "wallet-mnemonic-dismiss-button"
+

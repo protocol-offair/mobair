@@ -1,0 +1,8 @@
+<resources>
+  <string name="app_name">AirPay</string>
+  <string name="airpay_background_channel_name">AirPay local continuity</string>
+  <string name="airpay_background_notification_title">AirPay active in background</string>
+  <string name="airpay_background_notification_body">Sync and local transport readiness are running.</string>
+  <string name="airpay_overlay_title">AirPay</string>
+  <string name="airpay_overlay_body">Sync ativo</string>
+</resources>
