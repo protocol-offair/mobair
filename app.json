@@ -3,12 +3,12 @@
     "name": "MobAir",
     "slug": "mobair",
     "scheme": "airpay",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "orientation": "portrait",
     "icon": "./assets/brand/airpay-app-icon.png",
     "android": {
       "package": "com.airpay.wallet",
-      "versionCode": 4,
+      "versionCode": 5,
       "icon": "./assets/brand/airpay-app-icon.png",
       "adaptiveIcon": {
         "foregroundImage": "./assets/brand/airpay-adaptive-icon.png",
@@ -29,7 +29,7 @@
       "react-native-ble-plx"
     ],
     "extra": {
-      "backendUrl": "https://airpay.digital-directive.com/api",
+      "backendUrl": "https://api.offair.digital-directive.com",
       "backendTransportPublicKey": "LClv9CJ0jQgTpsTzs1YGn4lGoOHxbfk5xNGPigUXYhU=",
       "solanaCluster": "solana-devnet",
       "solanaRpcUrl": "https://devnet.rpcpool.com",

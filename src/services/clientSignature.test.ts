@@ -14,7 +14,7 @@ describe("client request signatures", () => {
   it("builds deterministic wallet-bound headers for protected backend calls", async () => {
     const headers = await buildClientSignatureHeaders({
       method: "POST",
-      url: "https://airpay.digital-directive.com/api/wallet/register",
+      url: "https://api.offair.digital-directive.com/wallet/register",
       context: "wallet.register",
       deviceId: "device-1",
       walletId: "wallet-1",
@@ -50,4 +50,3 @@ describe("client request signatures", () => {
     );
   });
 });
-
