@@ -1515,13 +1515,32 @@ export function confirmWalletBackup(state: WalletState): WalletState {
   );
 }
 
+async function withProtocolProvisioningTimeout(promise: Promise<WalletState>, timeoutMs: number): Promise<WalletState> {
+  let timeoutId: ReturnType<typeof setTimeout> | undefined;
+  try {
+    return await Promise.race([
+      promise,
+      new Promise<WalletState>((_, reject) => {
+        timeoutId = setTimeout(() => reject(new Error("protocol provisioning timed out")), timeoutMs);
+      }),
+    ]);
+  } finally {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+  }
+}
+
 export async function confirmWalletBackupAndRefreshProtocolState(state: WalletState): Promise<WalletState> {
   const confirmed = confirmWalletBackup(state);
   try {
-    return await refreshProtocolStateInternal(confirmed, {
-      registerWallet: true,
-      provisionBudget: true,
-    });
+    return await withProtocolProvisioningTimeout(
+      refreshProtocolStateInternal(confirmed, {
+        registerWallet: true,
+        provisionBudget: true,
+      }),
+      15000,
+    );
   } catch (error) {
     return prependStatus(
       confirmed,

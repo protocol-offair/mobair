@@ -487,6 +487,16 @@ export function useAirPayWallet() {
     };
   }
 
+  function receiverMatchesHint(receiver: NearbyReceiverCandidate, hint: SenderReceiverSelectionHint) {
+    return (
+      (hint.candidateId && receiver.candidateId === hint.candidateId) ||
+      (hint.walletAddress && receiver.walletAddress === hint.walletAddress) ||
+      (hint.deviceId && receiver.deviceId === hint.deviceId) ||
+      (hint.displayName && receiver.displayName === hint.displayName) ||
+      (hint.deviceName && receiver.deviceName === hint.deviceName)
+    );
+  }
+
   function resolveSelectedReceiverFromHint(hint?: SenderReceiverSelectionHint) {
     if (selectedNearbyReceiver) {
       return selectedNearbyReceiver;
@@ -494,16 +504,7 @@ export function useAirPayWallet() {
     if (!hint) {
       return null;
     }
-    return (
-      senderDiscovery.receivers.find(
-        (receiver) =>
-          (hint.candidateId && receiver.candidateId === hint.candidateId) ||
-          (hint.walletAddress && receiver.walletAddress === hint.walletAddress) ||
-          (hint.deviceId && receiver.deviceId === hint.deviceId) ||
-          (hint.displayName && receiver.displayName === hint.displayName) ||
-          (hint.deviceName && receiver.deviceName === hint.deviceName),
-      ) ?? null
-    );
+    return senderDiscovery.receivers.find((receiver) => receiverMatchesHint(receiver, hint)) ?? null;
   }
 
   async function startSenderDiscoveryInternal(candidateToReselect?: SenderReceiverSelectionHint) {
@@ -1345,12 +1346,30 @@ export function useAirPayWallet() {
       throw new Error(translate("service.wallet.error.receiverSelectionRequired"));
     }
 
-    const preview = await updateSendTrustPreviewForCandidate(selectedReceiver);
+    const handle = senderDiscoveryHandleRef.current;
+    if (!handle) {
+      throw new Error(translate("service.wallet.error.discoveryRestartRequired"));
+    }
+
+    const selectedReceiverHint = buildSelectionHint(selectedReceiver);
+    const liveSnapshot = handle.getSnapshot();
+    const liveReceiver =
+      (selectedReceiverHint
+        ? liveSnapshot.receivers.find((receiver) => receiverMatchesHint(receiver, selectedReceiverHint))
+        : null) ??
+      (liveSnapshot.receivers.length === 1 ? liveSnapshot.receivers[0] : null) ??
+      selectedReceiver;
+
+    if (!liveReceiver) {
+      throw new Error(translate("service.transport.error.discoveryCandidateMissing"));
+    }
+
+    const preview = await updateSendTrustPreviewForCandidate(liveReceiver);
     const peerLabel =
-      selectedReceiver.displayName ??
-      selectedReceiver.deviceName ??
-      selectedReceiver.walletAddress ??
-      selectedReceiver.deviceId ??
+      liveReceiver.displayName ??
+      liveReceiver.deviceName ??
+      liveReceiver.walletAddress ??
+      liveReceiver.deviceId ??
       translate("common.state.unknown");
 
     if (preview?.decision === "block") {
@@ -1388,18 +1407,13 @@ export function useAirPayWallet() {
       }
     }
 
-    const handle = senderDiscoveryHandleRef.current;
-    if (!handle) {
-      throw new Error(translate("service.wallet.error.discoveryRestartRequired"));
-    }
-
     const session = await handle.createSession({
       manifest: currentWallet.manifest!,
       baseRoot: buildBaseRoot({
         journal: currentWallet.journal,
       }),
       counter: currentWallet.journal.length + 1,
-      candidateId: selectedReceiver.candidateId,
+      candidateId: liveReceiver.candidateId,
     });
 
     return sendOfflineTransfer(currentWallet, {
@@ -1723,11 +1737,13 @@ export function useAirPayWallet() {
       setError(null);
       setSendTrustPrompt(null);
       const selectedReceiverHint = buildSelectionHint(selectedNearbyReceiver);
+      let keepDiscoveryForTrustPrompt = false;
       try {
         const next = await performOfflineSend(wallet, amount, false, selectedReceiverHint);
         await commitWallet(next);
       } catch (actionError) {
         if (actionError instanceof SendTrustWarningError) {
+          keepDiscoveryForTrustPrompt = true;
           setSendTrustPrompt(actionError.prompt);
           await refreshTrustSummary();
           await recordDiagnostic({
@@ -1748,8 +1764,10 @@ export function useAirPayWallet() {
           await handleActionFailure("offline.send", actionError);
         }
       } finally {
-        await stopSenderDiscoveryInternal({ preserveReceivers: true });
-        await startSenderDiscoveryInternal(selectedReceiverHint);
+        if (!keepDiscoveryForTrustPrompt) {
+          await stopSenderDiscoveryInternal({ preserveReceivers: true });
+          await startSenderDiscoveryInternal(selectedReceiverHint);
+        }
         setBusy(false);
       }
     },

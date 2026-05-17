@@ -381,6 +381,9 @@ function RootShell() {
         }
         console.warn("[AirPay ADB automation]", "wait offline readiness");
         await waitForAutomationValue(() => isAutomationWalletOfflineReady(controllerRef.current), 90000);
+        console.warn("[AirPay ADB automation]", "reset sender discovery");
+        await controllerRef.current.stopSenderDiscovery();
+        await delay(750);
         console.warn("[AirPay ADB automation]", "start sender discovery");
         await controllerRef.current.startSenderDiscovery();
 
